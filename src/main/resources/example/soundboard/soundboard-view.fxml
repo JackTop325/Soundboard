@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.soundboard.Controller">
+   <tabs>
+      <Tab closable="false" text="Soundboard">
+         <content>
+            <VBox alignment="CENTER" spacing="20.0">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+               <Label text="Soundboard" textAlignment="CENTER">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Label>
+               <GridPane>
+                 <columnConstraints>
+                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                 </columnConstraints>
+                 <rowConstraints>
+                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                 </rowConstraints>
+                  <children>
+                      <Button fx:id="S1" disable="true" onAction="#sound1" text="Sound 1" />
+                     <Button fx:id="S2" disable="true" mnemonicParsing="false" onAction="#sound2" text="Sound 2" GridPane.columnIndex="1" />
+                     <Button fx:id="S3" disable="true" mnemonicParsing="false" onAction="#sound3" text="Sound 3" GridPane.columnIndex="2" />
+                     <Button fx:id="S4" disable="true" mnemonicParsing="false" onAction="#sound4" text="Sound 4" GridPane.columnIndex="3" />
+                     <Button fx:id="S5" disable="true" mnemonicParsing="false" onAction="#sound5" text="Sound 5" GridPane.rowIndex="1" />
+                     <Button fx:id="S9" disable="true" mnemonicParsing="false" onAction="#sound9" text="Sound 9" GridPane.rowIndex="2" />
+                     <Button fx:id="S6" disable="true" mnemonicParsing="false" onAction="#sound6" text="Sound 6" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     <Button fx:id="S10" disable="true" mnemonicParsing="false" onAction="#sound10" text="Sound 10" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     <Button mnemonicParsing="false" onAction="#stop" text="Stop" GridPane.rowIndex="3" />
+                     <Button fx:id="S7" disable="true" mnemonicParsing="false" onAction="#sound7" text="Sound 7" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                     <Button fx:id="S11" disable="true" mnemonicParsing="false" onAction="#sound11" text="Sound 11" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                     <Button fx:id="S8" disable="true" mnemonicParsing="false" onAction="#sound8" text="Sound 8" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                     <Button fx:id="S12" disable="true" mnemonicParsing="false" onAction="#sound12" text="Sound 12" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  </children>
+               </GridPane>
+            </VBox>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Add/Delete">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" onDragDropped="#handleDrop" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="fileOpen" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#open" onDragOver="#handleDragOver" prefHeight="130.0" prefWidth="130.0" text="Drag and Drop or &#10;Click to&#10;Upload file" textAlignment="CENTER" />
+                  <Label fx:id="uploadedSound" layoutX="14.0" layoutY="154.0" text="Selected Sound" />
+                  <VBox layoutX="220.0" layoutY="4.0" prefHeight="159.0" prefWidth="206.0">
+                     <children>
+                        <MenuBar>
+                          <menus>
+                            <Menu mnemonicParsing="false" text="Sound Button">
+                              <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#loadSound1" text="Sound 1" />
+                                  <MenuItem mnemonicParsing="false" onAction="#loadSound2" text="Sound 2" />
+                                  <MenuItem mnemonicParsing="false" onAction="#loadSound3" text="Sound 3" />
+                                  <MenuItem mnemonicParsing="false" onAction="#loadSound4" text="Sound 4" />
+                                  <MenuItem mnemonicParsing="false" onAction="#loadSound5" text="Sound 5" />
+                                  <MenuItem mnemonicParsing="false" onAction="#loadSound6" text="Sound 6" />
+                                  <MenuItem mnemonicParsing="false" onAction="#loadSound7" text="Sound 7" />
+                                  <MenuItem mnemonicParsing="false" onAction="#loadSound8" text="Sound 8" />
+                                  <MenuItem mnemonicParsing="false" onAction="#loadSound9" text="Sound 9" />
+                                  <MenuItem mnemonicParsing="false" onAction="#loadSound10" text="Sound 10" />
+                                  <MenuItem mnemonicParsing="false" onAction="#loadSound11" text="Sound 11" />
+                                  <MenuItem mnemonicParsing="false" onAction="#loadSound12" text="Sound 12" />
+                              </items>
+                            </Menu>
+                          </menus>
+                        </MenuBar>
+                        <Label fx:id="selectedButton" text="Selected Button" />
+                        <Label fx:id="soundTitle" text="Button Sound" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="243.0" layoutY="167.0" mnemonicParsing="false" onAction="#addReplace" text="Add/Replace Sound" />
+                  <Button layoutX="14.0" layoutY="180.0" mnemonicParsing="false" onAction="#playTest" text="Preview" />
+                  <Button layoutX="79.0" layoutY="180.0" mnemonicParsing="false" onAction="#stop" text="Stop" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+   </tabs>
+</TabPane>
